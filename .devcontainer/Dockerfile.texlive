@@ -1,0 +1,19 @@
+FROM texlive/texlive:latest
+
+ARG USER=texlive
+ARG UID=1000
+ARG GID=1000
+
+RUN groupadd \
+    --gid ${GID} \
+    --non-unique \
+    ${USER}
+RUN useradd \
+    --gid ${GID} \
+    --create-home \
+    --non-unique \
+    --shell /bin/bash \
+    --uid ${UID} \
+    ${USER}
+
+USER ${USER}

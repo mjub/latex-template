@@ -1,0 +1,50 @@
+{
+    // Use a slightly modified version of the official TeX Live Docker image to drop root privileges.
+    "build": {
+        "dockerfile": "Dockerfile.texlive",
+        "args": {
+            // You might need to add UID and GID to your VS Code environment.
+            "UID": "${localEnv:UID:1000}",
+            "GID": "${localEnv:GID:1000}"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "James-Yu.latex-workshop",
+                // Preview the generated document at http://127.0.0.1:20524/.
+                "ritwickdey.LiveServer"
+            ],
+            "settings": {
+                // Hide .gitignored files.
+                "explorer.excludeGitIgnore": true,
+                // Disable build error notifications.
+                "latex-workshop.message.error.show": false,
+                "latex-workshop.message.warning.show": false,
+                // Necessary to get e.g. Pygments to work.
+                "latex-workshop.latex.tools": [
+                    {
+                        "name": "latexmk",
+                        "command": "latexmk",
+                        "args": [
+                            "-synctex=1",
+                            "-interaction=nonstopmode",
+                            "-file-line-error",
+                            "-pdf",
+                            "-shell-escape",
+                            "-outdir=%OUTDIR%",
+                            "%DOC%"
+                        ],
+                        "env": {}
+                    }
+                ],
+                "liveServer.settings.donotShowInfoMsg": true,
+                "liveServer.settings.NoBrowser": true,
+                // Spells out T = 20, E = 5, X = 24.
+                "liveServer.settings.port": 20524,
+                // Change this if your source files are located somewhere else.
+                "liveServer.settings.root": "/src"
+            }
+        }
+    }
+}
