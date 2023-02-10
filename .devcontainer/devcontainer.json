@@ -16,6 +16,8 @@
                 "ritwickdey.LiveServer"
             ],
             "settings": {
+                // Smaller tab size.
+                "editor.tabSize": 2,
                 // Hide .gitignored files.
                 "explorer.excludeGitIgnore": true,
                 // Disable build error notifications.
@@ -41,9 +43,7 @@
                 "liveServer.settings.donotShowInfoMsg": true,
                 "liveServer.settings.NoBrowser": true,
                 // Spells out T = 20, E = 5, X = 24.
-                "liveServer.settings.port": 20524,
-                // Change this if your source files are located somewhere else.
-                "liveServer.settings.root": "/src"
+                "liveServer.settings.port": 20524
             }
         }
     }
