@@ -43,7 +43,9 @@
                 "liveServer.settings.donotShowInfoMsg": true,
                 "liveServer.settings.NoBrowser": true,
                 // Spells out T = 20, E = 5, X = 24.
-                "liveServer.settings.port": 20524
+                "liveServer.settings.port": 20524,
+                // Change this if you use a custom folder name for the generated document.
+                "liveServer.settings.root": "/src"
             }
         }
     }

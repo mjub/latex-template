@@ -1,0 +1,17 @@
+% Set the document title.
+\NewDocumentCommand \SetTitle {>\TrimSpaces m}
+  {%
+    \title{#1}
+    \NewDocumentCommand \Title {} {#1\xspace}
+  }
+
+% Set the author and, optionally, their email address.
+\NewDocumentCommand \SetAuthor {>\TrimSpaces m >\TrimSpaces o}
+  {%
+    \IfValueT{#2}
+      {%
+        \NewDocumentCommand \Email {} {\href{mailto:#2}{\texttt{#2}}\xspace}
+      }
+    \author{#1\IfValueT{#2}{~(\Email)}}
+    \NewDocumentCommand \Author {} {#1\xspace}
+  }
