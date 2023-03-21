@@ -1,8 +1,14 @@
 % Set the document title.
-\NewDocumentCommand \SetTitle {>\TrimSpaces m}
+% The starred version disable auto-capitalization.
+\NewDocumentCommand \SetTitle {s >\TrimSpaces m}
   {%
-    \title{#1}
-    \NewDocumentCommand \Title {} {#1\xspace}
+    \title
+      {%
+        \IfBooleanTF{#1}
+          {#2}
+          {\titlecap{#2}}%
+      }
+    \NewDocumentCommand \Title {} {#2\xspace}
   }
 
 % Set the author and, optionally, their email address.
