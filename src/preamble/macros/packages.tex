@@ -1,3 +1,40 @@
+% -- fancyhdr.
+\renewcommand{\headrulewidth}{0pt}
+
+% Default style.
+\fancypagestyle{default}
+  {%
+    \fancyhf{}
+    \fancyhead[LE,RO]{\small\thepage}
+    \fancyhead[CE]{\small\leftmark}
+    \fancyhead[RE]{\small§~\thesection}
+    \fancyhead[CO]{\small\rightmark}
+  }
+
+% Below is a dirty fix for the table of contents and the references.
+\makeatletter
+  \NewDocumentCommand \@TitleStyle {>\TrimSpaces m} {\textsc{\MakeUppercase{#1}}}
+
+  \renewcommand{\sectionmark}[1]{\markboth{\textsc{\MakeUppercase{#1}}}{}}
+  \renewcommand{\subsectionmark}[1]{\markright{\textsc{\MakeUppercase{#1}}}}
+
+  \fancypagestyle{toc}
+    {%
+      \fancyhf{}
+      \fancyhead[LE,RO]{\small\thepage}
+      \fancyhead[CE]{\small\@TitleStyle{Contents}}
+      \fancyhead[CO]{\small\rightmark}
+    }
+
+  \fancypagestyle{bibliography}
+    {%
+      \fancyhf{}
+      \fancyhead[LE,RO]{\small\thepage}
+      \fancyhead[CE]{\small\@TitleStyle{References}}
+      \fancyhead[CO]{\small\rightmark}
+    }
+\makeatother
+
 % -- titlecaps.
 \Addlcwords
   {%
