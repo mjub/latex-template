@@ -8,7 +8,9 @@
           {#2}
           {\titlecap{#2}}%
       }
-    \NewDocumentCommand \Title {} {#2\xspace}
+    \newcommand \Title {#2\xspace}
+
+    \hypersetup{pdftitle={\Title}}
   }
 
 % Set the author and, optionally, their email address.
@@ -16,8 +18,10 @@
   {%
     \IfValueT{#2}
       {%
-        \NewDocumentCommand \Email {} {\href{mailto:#2}{\texttt{#2}}\xspace}
+        \newcommand \Email {\href{mailto:#2}{\texttt{#2}}\xspace}
       }
     \author{#1\IfValueT{#2}{~(\Email)}}
-    \NewDocumentCommand \Author {} {#1\xspace}
+    \newcommand \Author {#1\xspace}
+
+    \hypersetup{pdfauthor={\Author}}
   }
