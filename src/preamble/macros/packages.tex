@@ -50,7 +50,22 @@
   [\endcenter]
 
 \titleformat \subsection
-  {\large\bf}
+  {\large}
   {\thesubsection.~~}
   {0pt}
+  {\emph}
+
+% -- titletoc.
+\titlecontents {section}
+  [0em]
+  {\vspace{1.9em}}
+  {§~\thecontentslabel.~~\MakeUppercase}
+  {\MakeUppercase}
+  {\normalfont\titlerule*{~.~}\contentspage}
+
+\titlecontents {subsection}
+  [3.8em]
   {}
+  {\thecontentslabel.~~\emph}
+  {}
+  {\normalfont\titlerule*{~.~}\contentspage}
