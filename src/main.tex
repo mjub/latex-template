@@ -20,8 +20,13 @@
 
   % Table of contents.
   \clearpage
-  \pagestyle{toc}
-    \phantomsection
-    \addcontentsline{toc}{section}{Contents}
-  \tableofcontents
+  \newgeometry{
+    vmargin=5cm,
+    width=.8\textwidth,
+  }
+    \pagestyle{empty}
+      \phantomsection
+      \addcontentsline{toc}{section}{Contents}
+    \tableofcontents
+  \restoregeometry
 \end{document}
