@@ -29,7 +29,6 @@ This being said, we fix an associative ring $R$ and begin again in the category 
 \end{equation}
 We say that such a sequence is \emph{exact} (at $B$) if $\ker(g) = \operatorname{im}(f)$. This implies in particular that the composite $gf : A \to C$ is zero, and finally brings our attention to sequences (\ref{eq:seq}) such that $gf = 0$.
 
-\newtheorem{definition}{Definition}
 \begin{definition}
   A \emph{chain complex} $C_\cdot$ of $R$-modules is a family $\{C_n\}_{n \in \mathbb{Z}}$ of $R$-modules, together with $R$-module maps $d = d_n : C_n \to C_{n - 1}$ such that each composite $d \circ d : C_n \to C_{n - 2}$ is zero. The maps $d_n$ are called the \emph{differentials} of $C_\cdot$. The kernel of $d_n$ is the module of \emph{$n$-cycles} of $C_\cdot$, denoted $Z_n = Z_n(C_\cdot)$. The image of $d_{n + 1} : C_{n + 1} \to C_n$ is the module of \emph{$n$-boundaries} of $C_\cdot$, denoted $B_n = B_n(C_\cdot)$. Because $d \circ d = 0$, we have
   \[
@@ -38,7 +37,6 @@ We say that such a sequence is \emph{exact} (at $B$) if $\ker(g) = \operatorname
   for all $n$. The \emph{$n$\textsuperscript{th} homology module} of $C_\cdot$ is the subquotient $H_n(C_\cdot) = Z_n / B_n$ of $C_n$. Because the dot in $C_\cdot$ is annoying, we will often write $C$ for $C_\cdot$.
 \end{definition}
 
-\newtheorem{exercise}{Exercise}
 \begin{exercise}
   Set $C_n = \mathbb{Z} / 8$ for $n \geq 0$ and $C_n = 0$ for $n < 0$; for $n > 0$ let $d_n$ send $x\ (\operatorname{mod} 8)$ to $4x\ (\operatorname{mod} 8)$. Show that $C_\cdot$ is a chain complex of $\mathbb{Z} / 8$-modules and compute its homology modules.
 \end{exercise}

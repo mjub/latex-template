@@ -1,8 +1,80 @@
+% -- amsthm.
+\makeatletter
+  \newtheorem{@shared}{}[subsection]
+
+  % Create a whole class of new theorem environments.
+  \NewDocumentCommand \NewThm {s o >\TrimSpaces m >\TrimSpaces m}
+    {%
+      \IfValueTF{#2}
+        {\newtheorem{#3\IfBooleanT{#1}{*}}{#4}[#2]}
+        {\newtheorem{#3\IfBooleanT{#1}{*}}[@shared]{#4}}
+      \newtheorem*{#3\IfBooleanF{#1}{*}}{#4}
+
+      % Special enviroment for lists (i.e. itemize and enumerate).
+      \NewDocumentEnvironment {#3-list} {o}
+        {\IfValueTF{##1}{\begin{#3}[##1]}{\begin{#3}}\leavevmode\nopagebreak}
+        {\end{#3}}
+      \NewDocumentEnvironment {#3-list*} {o}
+        {\IfValueTF{##1}{\begin{#3*}[##1]}{\begin{#3*}}\leavevmode\nopagebreak}
+        {\end{#3*}}
+    }
+
+    \newtheoremstyle {runin}
+      {0pt}
+      {0pt}
+      {}
+      {}
+      {}
+      {~---~}
+      {0em}
+      {\thmnumber{(#2)}}
+
+    \theoremstyle{runin}
+    % A dirty hack to write numbered paragraphs.
+    \newtheorem{numbered}[@shared]{}
+\makeatother
+
+\newtheoremstyle {default}
+  {}
+  {}
+  {}
+  {}
+  {}
+  {.~---~}
+  {0em}
+  {\thmname{\microtypesetup{tracking=false}\textsc{#1}\microtypesetup{tracking=true}}\thmnumber{ #2}\thmnote{ (#3)}}
+
+\newtheoremstyle {statement}
+  {}
+  {}
+  {\thfamily}
+  {}
+  {}
+  {.~---~}
+  {0em}
+  {\textbf{\thmname{#1}\thmnumber{ #2}}\thmnote{ (#3)}}
+
+\newtheoremstyle {other}
+  {}
+  {}
+  {}
+  {}
+  {}
+  {.~---~}
+  {0em}
+  {\thmname{\emph{#1}}\thmnumber{ #2}\thmnote{ (#3)}}
+
+\theoremstyle{default}
+\NewThm{definition}{Definition}
+
+\theoremstyle{other}
+\NewThm{exercise}{Exercise}
+
 % -- fancyhdr.
 \renewcommand{\headrulewidth}{0pt}
 
 % Default style.
-\fancypagestyle{default}
+\fancypagestyle {default}
   {%
     \fancyhf{}
     \fancyhead[LE,RO]{\small\thepage}
@@ -18,7 +90,7 @@
   \renewcommand{\subsectionmark}[1]{\markright{\textsc{\MakeUppercase{#1}}}}
 
   % % Below is a dirty fix for the table of contents and the references.
-  % \fancypagestyle{toc}
+  % \fancypagestyle {toc}
   %   {%
   %     \fancyhf{}
   %     \fancyhead[LE,RO]{\small\thepage}
@@ -26,7 +98,7 @@
   %     \fancyhead[CO]{\small\rightmark}
   %   }
 
-  % \fancypagestyle{bibliography}
+  % \fancypagestyle {bibliography}
   %   {%
   %     \fancyhf{}
   %     \fancyhead[LE,RO]{\small\thepage}
