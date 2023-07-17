@@ -6,8 +6,12 @@
 \usepackage{
   csquotes,
   kantlipsum,
-  titlecaps,
   xspace,
+}
+
+% Disable titlecaps in French.
+\iflanguage{french}{}{%
+  \usepackage{titlecaps}
 }
 
 \usepackage[

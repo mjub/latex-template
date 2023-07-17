@@ -6,7 +6,7 @@
       {%
         \IfBooleanTF{#1}
           {#2}
-          {\titlecap{#2}}%
+          {\iflanguage{french}{#2}{\titlecap{#2}}}%
       }
     \newcommand \Title {#2\xspace}
 

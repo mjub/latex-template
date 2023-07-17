@@ -1,38 +1,37 @@
 % -- amsthm.
-\makeatletter
-  \newtheorem{@shared}{}[subsection]
+\numberwithin{equation}{subsection}
 
-  % Create a whole class of new theorem environments.
-  \NewDocumentCommand \NewThm {s o >\TrimSpaces m >\TrimSpaces m}
-    {%
-      \IfValueTF{#2}
-        {\newtheorem{#3\IfBooleanT{#1}{*}}{#4}[#2]}
-        {\newtheorem{#3\IfBooleanT{#1}{*}}[@shared]{#4}}
-      \newtheorem*{#3\IfBooleanF{#1}{*}}{#4}
+% Create a whole class of new theorem environments.
+\NewDocumentCommand \NewThm {s o >\TrimSpaces m >\TrimSpaces m}
+  {%
+    \IfValueTF{#2}
+      {\newtheorem{#3\IfBooleanT{#1}{*}}{#4}[#2]}
+      {\newtheorem{#3\IfBooleanT{#1}{*}}[equation]{#4}}
+    \newtheorem*{#3\IfBooleanF{#1}{*}}{#4}
 
-      % Special enviroment for lists (i.e. itemize and enumerate).
-      \NewDocumentEnvironment {#3-list} {o}
-        {\IfValueTF{##1}{\begin{#3}[##1]}{\begin{#3}}\leavevmode\nopagebreak}
-        {\end{#3}}
-      \NewDocumentEnvironment {#3-list*} {o}
-        {\IfValueTF{##1}{\begin{#3*}[##1]}{\begin{#3*}}\leavevmode\nopagebreak}
-        {\end{#3*}}
-    }
+    % Special enviroment for lists (i.e. itemize and enumerate).
+    \NewDocumentEnvironment {#3-list} {o}
+      {\IfValueTF{##1}{\begin{#3}[##1]}{\begin{#3}}\leavevmode\nopagebreak}
+      {\end{#3}}
+    \NewDocumentEnvironment {#3-list*} {o}
+      {\IfValueTF{##1}{\begin{#3*}[##1]}{\begin{#3*}}\leavevmode\nopagebreak}
+      {\end{#3*}}
+  }
 
-    \newtheoremstyle {runin}
-      {0pt}
-      {0pt}
-      {}
-      {}
-      {}
-      {~---~}
-      {0em}
-      {\thmnumber{(#2)}}
+  \newtheoremstyle {runin}
+    {0pt}
+    {0pt}
+    {}
+    {}
+    {}
+    {~---~}
+    {0em}
+    {\thmnumber{(#2)}}
 
-    \theoremstyle{runin}
-    % A dirty hack to write numbered paragraphs.
-    \newtheorem{numbered}[@shared]{}
-\makeatother
+  \theoremstyle{runin}
+  % A dirty hack to write numbered paragraphs.
+  \newtheorem{numbered}[equation]{}
+
 
 \newtheoremstyle {default}
   {}
@@ -65,10 +64,10 @@
   {\thmname{\emph{#1}}\thmnumber{ #2}\thmnote{ (#3)}}
 
 \theoremstyle{default}
-\NewThm{definition}{Definition}
+\NewThm{definition}{\iflanguage{french}{Définition}{Definition}}
 
 \theoremstyle{other}
-\NewThm{exercise}{Exercise}
+\NewThm{exercise}{\iflanguage{french}{Exercice}{Exercise}}
 
 % -- fancyhdr.
 \renewcommand{\headrulewidth}{0pt}
@@ -108,10 +107,12 @@
 \makeatother
 
 % -- titlecaps.
-\Addlcwords
-  {%
-    a amid an and anti as at atop but by down for from in into like near next nor of off on onto or out over pace past per plus qua save so than the till to up upon via with yet
-  }
+\iflanguage{french}{}{%
+  \Addlcwords
+    {%
+      a amid an and anti as at atop but by down for from in into like near next nor of off on onto or out over pace past per plus qua save so than the till to up upon via with yet
+    }
+}
 
 % -- titlesec.
 \titleformat \section [block]
