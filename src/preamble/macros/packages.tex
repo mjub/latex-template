@@ -41,7 +41,7 @@
   {}
   {.~---~}
   {0em}
-  {\thmname{\microtypesetup{tracking=false}\textsc{#1}\microtypesetup{tracking=true}}\thmnumber{ #2}\thmnote{ (#3)}}
+  {\thmname{\textsc{#1}}\thmnumber{ #2}\thmnote{ (#3)}}
 
 \newtheoremstyle {statement}
   {}
@@ -83,10 +83,10 @@
   }
 
 \makeatletter
-  \NewDocumentCommand \@TitleStyle {>\TrimSpaces m} {\textsc{\MakeUppercase{#1}}}
+  \NewDocumentCommand \@TitleStyle {>\TrimSpaces m} {\microtypesetup{tracking=true}\textsc{\MakeUppercase{#1}}\microtypesetup{tracking=false}}
 
-  \renewcommand{\sectionmark}[1]{\markboth{\textsc{\MakeUppercase{#1}}}{}}
-  \renewcommand{\subsectionmark}[1]{\markright{\textsc{\MakeUppercase{#1}}}}
+  \renewcommand{\sectionmark}[1]{\markboth{\@TitleStyle{\MakeUppercase{#1}}}{}}
+  \renewcommand{\subsectionmark}[1]{\markright{\@TitleStyle{\MakeUppercase{#1}}}}
 
   % % Below is a dirty fix for the table of contents and the references.
   % \fancypagestyle {toc}

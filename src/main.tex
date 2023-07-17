@@ -10,6 +10,8 @@
 
 % -- Main matter.
 \begin{document}
+  \microtypesetup{tracking=false}
+
   % Title.
   \maketitle
   \thispagestyle{empty}
@@ -21,10 +23,21 @@
   % Table of contents.
   \clearpage
   \newgeometry{
+    hcentering=true,
     vmargin=5cm,
     width=.8\textwidth,
   }
     \pagestyle{empty}
+
+    % \nocite{*}
+
+    \newcommand{\BibTitle}{\iflanguage{french}{Bibliographie}{References}}
+
+      \phantomsection
+      \addcontentsline{toc}{section}{\BibTitle}
+    \printbibliography[title=\BibTitle]
+
+    \clearpage
       \phantomsection
       \addcontentsline{toc}{section}{\iflanguage{french}{Table des matières}{Contents}}
     \tableofcontents

@@ -1,12 +1,13 @@
 % Set the document title.
 % The starred version disable auto-capitalization.
-\NewDocumentCommand \SetTitle {s >\TrimSpaces m}
+\NewDocumentCommand \SetTitle {s >\TrimSpaces m >\TrimSpaces o}
   {%
     \title
       {%
         \IfBooleanTF{#1}
           {#2}
           {\iflanguage{french}{#2}{\titlecap{#2}}}%
+        \IfValueT{#3}{\footnote{#3}}%
       }
     \newcommand \Title {#2\xspace}
 
