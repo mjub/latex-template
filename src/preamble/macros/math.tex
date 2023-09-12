@@ -20,39 +20,66 @@
     \NewMathCommand #1 {} {#2}
   }
 
-\makeatletter
-  % Give a uniform look to all standard categories.
-  \let\@category\mathbf
+% Define a new named category.
+\NewDocumentCommand \Categ {>\TrimSpaces m >\TrimSpaces m}
+  {%
+    \NewMathCommand #1 {>\TrimSpaces o}
+      {\IfValueTF{##1}{\mathrm{#2}(##1)}{\mathbf{#2}}}
+  }
 
-  \Abbr \Ab {\@category{Ab}}
-  \Abbr \Aut {\operatorname{Aut}}
-  \Abbr \bC {\mathbf{C}}
-  \Abbr \bD {\mathbf{D}}
-  \Abbr \Cat {\@category{Cat}}
-  \Abbr \C {\mathcal{C}}
-  \Abbr \coker {\operatorname{coker}}
-  \Abbr \dim {\operatorname{dim}}
-  \Abbr \D {\mathcal{D}}
-  \Abbr \empty {\varnothing}
-  \Abbr \eqq {\overset{\mathclap{\text{\tiny{def}}}}{=}}
-  \Abbr \Grp {\@category{Grp}}
-  \Abbr \Hom {\mathrm{Hom}}
-  \Abbr \I {\mathcal{I}}
-  \Abbr \im {\operatorname{im}}
-  \Abbr \ker {\operatorname{ker}}
-  \Abbr \Lat {\@category{Lat}}
-  \Abbr \M {\mathcal{M}}
-  \Abbr \N {\mathbb{N}}
-  \Abbr \one {\mathbf{1}}
-  \Abbr \op {{}^{\mathsf{op}}}
-  \Abbr \Pos {\@category{Pos}}
-  \Abbr \PSh {\@category{PSh}}
-  \Abbr \rank {\mathrm{rank}}
-  \Abbr \R {\mathbb{R}}
-  \Abbr \Set {\@category{Set}}
-  \Abbr \S {\mathbb{S}}
-  \Abbr \sSet {\@category{sSet}}
-  \Abbr \Top {\@category{Top}}
-  \Abbr \two {\mathbf{2}}
-  \Abbr \zero {\mathbf{0}}
-\makeatother
+\Abbr \Aut {\operatorname{Aut}}
+\Abbr \ap {\mathsf{ap}}
+\Abbr \bbC {\mathbb{C}}
+\Abbr \bbi {\mathbb{i}}
+\Abbr \bbI {\mathbb{I}}
+\Abbr \bbZ {\mathbb{Z}}
+\Abbr \bC {\mathbf{C}}
+\Abbr \bD {\mathbf{D}}
+\Abbr \bI {\mathbf{I}}
+\Abbr \C {\mathscr{C}}
+\Abbr \calU {\mathcal{U}}
+\Abbr \coker {\operatorname{coker}}
+\Abbr \colim {\operatorname{\underset{\longleftarrow}{lim}}}
+\Abbr \dim {\operatorname{dim}}
+\Abbr \D {\mathscr{D}}
+\Abbr \End {\mathrm{End}}
+\Abbr \empty {\varnothing}
+\Abbr \eqq {\overset{\mathclap{\text{\tiny{def}}}}{=}}
+\Abbr \Hom {\mathrm{Hom}}
+\Abbr \id {\mathrm{id}}
+\Abbr \I {\mathcal{I}}
+\Abbr \im {\operatorname{im}}
+\Abbr \ker {\operatorname{ker}}
+\Abbr \M {\mathcal{M}}
+\Abbr \N {\mathbb{N}}
+\Abbr \one {\mathbf{1}}
+\Abbr \op {{}^{\mathsf{op}}}
+\Abbr \Q {\mathbb{Q}}
+\Abbr \rank {\mathrm{rank}}
+\Abbr \R {\mathbb{R}}
+\Abbr \S {\mathbb{S}}
+\Abbr \tensor {\otimes}
+\Abbr \tr {\mathsf{tr}}
+\Abbr \two {\mathbf{2}}
+\Abbr \zero {\mathbf{0}}
+\Categ \Ab {Ab}
+\Categ \Cat {Cat}
+\Categ \CMon {CMon}
+\Categ \Grp {Grp}
+\Categ \Lat {Lat}
+\Categ \Mon {Mon}
+\Categ \Pos {Pos}
+\Categ \PSh {PSh}
+\Categ \Set {Set}
+\Categ \sSet {sSet}
+\Categ \Top {Top}
+
+\NewMathCommand \set {>\TrimSpaces m >\TrimSpaces o}
+  {%
+    \left\lbrace#1\IfValueT{#2}{ \mid #2}\right\rbrace%
+  }
+
+\NewMathCommand \Mod {s >\TrimSpaces m}
+  {%
+    \IfBooleanTF{#1}{\text{Mod-$#2$}}{\text{$#2$-Mod}}%
+  }
