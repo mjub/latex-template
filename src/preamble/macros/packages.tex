@@ -56,6 +56,10 @@
   {0em}
   {\thmname{\textsc{#1}}\thmnumber{ #2}\thmnote{ (#3)}}
 
+% Define \thfamily as \itshape if newtx is not used.
+\ProvideDocumentCommand \thfamily {}
+  {\itshape}
+
 \newtheoremstyle {statement}
   {}
   {}
@@ -130,8 +134,15 @@
 \makeatother
 
 % -- tikz-cd.
-\NewDocumentEnvironment {diagram} {}
-  {\center\tikzcd}
+\tikzcdset{
+  diagrams={
+    column sep=2em,
+    row sep=2em,
+  }
+}
+
+\NewDocumentEnvironment {diagram} {>\TrimSpaces o}
+  {\center\IfNoValueTF{#1}{\tikzcd}{\tikzcd[#1]}}
   {\endtikzcd\endcenter}
 
 % -- titlecaps.

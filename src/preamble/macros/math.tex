@@ -27,41 +27,172 @@
       {\IfValueTF{##1}{\mathrm{#2}(##1)}{\mathbf{#2}}}
   }
 
-\Abbr \Aut {\operatorname{Aut}}
-\Abbr \ap {\mathsf{ap}}
+% Define \mathscr if not defined by the current font.
+\ProvideDocumentCommand \mathscr {>\TrimSpaces m}
+  {\mathcal{#1}}
+
+\Abbr \bbA {\mathbb{A}}
+\Abbr \bbB {\mathbb{B}}
 \Abbr \bbC {\mathbb{C}}
-\Abbr \bbi {\mathbb{i}}
+\Abbr \bbD {\mathbb{D}}
+\Abbr \bbE {\mathbb{E}}
+\Abbr \bbF {\mathbb{F}}
+\Abbr \bbG {\mathbb{G}}
+\Abbr \bbH {\mathbb{H}}
 \Abbr \bbI {\mathbb{I}}
+\Abbr \bbJ {\mathbb{J}}
+\Abbr \bbK {\mathbb{K}}
+\Abbr \bbL {\mathbb{L}}
+\Abbr \bbM {\mathbb{M}}
+\Abbr \bbN {\mathbb{N}}
+\Abbr \bbO {\mathbb{O}}
+\Abbr \bbP {\mathbb{P}}
+\Abbr \bbQ {\mathbb{Q}}
+\Abbr \bbR {\mathbb{R}}
+\Abbr \bbS {\mathbb{S}}
+\Abbr \bbT {\mathbb{T}}
+\Abbr \bbU {\mathbb{U}}
+\Abbr \bbV {\mathbb{V}}
+\Abbr \bbW {\mathbb{W}}
+\Abbr \bbX {\mathbb{X}}
+\Abbr \bbY {\mathbb{Y}}
 \Abbr \bbZ {\mathbb{Z}}
-\Abbr \bC {\mathbf{C}}
-\Abbr \bD {\mathbf{D}}
-\Abbr \bI {\mathbf{I}}
-\Abbr \C {\mathscr{C}}
+
+\Abbr \bfA {\mathbf{A}}
+\Abbr \bfB {\mathbf{B}}
+\Abbr \bfC {\mathbf{C}}
+\Abbr \bfD {\mathbf{D}}
+\Abbr \bfE {\mathbf{E}}
+\Abbr \bfF {\mathbf{F}}
+\Abbr \bfG {\mathbf{G}}
+\Abbr \bfH {\mathbf{H}}
+\Abbr \bfI {\mathbf{I}}
+\Abbr \bfJ {\mathbf{J}}
+\Abbr \bfK {\mathbf{K}}
+\Abbr \bfL {\mathbf{L}}
+\Abbr \bfM {\mathbf{M}}
+\Abbr \bfN {\mathbf{N}}
+\Abbr \bfO {\mathbf{O}}
+\Abbr \bfP {\mathbf{P}}
+\Abbr \bfQ {\mathbf{Q}}
+\Abbr \bfR {\mathbf{R}}
+\Abbr \bfS {\mathbf{S}}
+\Abbr \bfT {\mathbf{T}}
+\Abbr \bfU {\mathbf{U}}
+\Abbr \bfV {\mathbf{V}}
+\Abbr \bfW {\mathbf{W}}
+\Abbr \bfX {\mathbf{X}}
+\Abbr \bfY {\mathbf{Y}}
+\Abbr \bfZ {\mathbf{Z}}
+
+\Abbr \calA {\mathcal{A}}
+\Abbr \calB {\mathcal{B}}
+\Abbr \calC {\mathcal{C}}
+\Abbr \calD {\mathcal{D}}
+\Abbr \calE {\mathcal{E}}
+\Abbr \calF {\mathcal{F}}
+\Abbr \calG {\mathcal{G}}
+\Abbr \calH {\mathcal{H}}
+\Abbr \calI {\mathcal{I}}
+\Abbr \calJ {\mathcal{J}}
+\Abbr \calK {\mathcal{K}}
+\Abbr \calL {\mathcal{L}}
+\Abbr \calM {\mathcal{M}}
+\Abbr \calN {\mathcal{N}}
+\Abbr \calO {\mathcal{O}}
+\Abbr \calP {\mathcal{P}}
+\Abbr \calQ {\mathcal{Q}}
+\Abbr \calR {\mathcal{R}}
+\Abbr \calS {\mathcal{S}}
+\Abbr \calT {\mathcal{T}}
 \Abbr \calU {\mathcal{U}}
+\Abbr \calV {\mathcal{V}}
+\Abbr \calW {\mathcal{W}}
+\Abbr \calX {\mathcal{X}}
+\Abbr \calY {\mathcal{Y}}
+\Abbr \calZ {\mathcal{Z}}
+
+\Abbr \scrA {\mathscr{A}}
+\Abbr \scrB {\mathscr{B}}
+\Abbr \scrC {\mathscr{C}}
+\Abbr \scrD {\mathscr{D}}
+\Abbr \scrE {\mathscr{E}}
+\Abbr \scrF {\mathscr{F}}
+\Abbr \scrG {\mathscr{G}}
+\Abbr \scrH {\mathscr{H}}
+\Abbr \scrI {\mathscr{I}}
+\Abbr \scrJ {\mathscr{J}}
+\Abbr \scrK {\mathscr{K}}
+\Abbr \scrL {\mathscr{L}}
+\Abbr \scrM {\mathscr{M}}
+\Abbr \scrN {\mathscr{N}}
+\Abbr \scrO {\mathscr{O}}
+\Abbr \scrP {\mathscr{P}}
+\Abbr \scrQ {\mathscr{Q}}
+\Abbr \scrR {\mathscr{R}}
+\Abbr \scrS {\mathscr{S}}
+\Abbr \scrT {\mathscr{T}}
+\Abbr \scrU {\mathscr{U}}
+\Abbr \scrV {\mathscr{V}}
+\Abbr \scrW {\mathscr{W}}
+\Abbr \scrX {\mathscr{X}}
+\Abbr \scrY {\mathscr{Y}}
+\Abbr \scrZ {\mathscr{Z}}
+
+\Abbr \sfA {\mathsf{A}}
+\Abbr \sfB {\mathsf{B}}
+\Abbr \sfC {\mathsf{C}}
+\Abbr \sfD {\mathsf{D}}
+\Abbr \sfE {\mathsf{E}}
+\Abbr \sfF {\mathsf{F}}
+\Abbr \sfG {\mathsf{G}}
+\Abbr \sfH {\mathsf{H}}
+\Abbr \sfI {\mathsf{I}}
+\Abbr \sfJ {\mathsf{J}}
+\Abbr \sfK {\mathsf{K}}
+\Abbr \sfL {\mathsf{L}}
+\Abbr \sfM {\mathsf{M}}
+\Abbr \sfN {\mathsf{N}}
+\Abbr \sfO {\mathsf{O}}
+\Abbr \sfP {\mathsf{P}}
+\Abbr \sfQ {\mathsf{Q}}
+\Abbr \sfR {\mathsf{R}}
+\Abbr \sfS {\mathsf{S}}
+\Abbr \sfT {\mathsf{T}}
+\Abbr \sfU {\mathsf{U}}
+\Abbr \sfV {\mathsf{V}}
+\Abbr \sfW {\mathsf{W}}
+\Abbr \sfX {\mathsf{X}}
+\Abbr \sfY {\mathsf{Y}}
+\Abbr \sfZ {\mathsf{Z}}
+
+\Abbr \ap {\mathsf{ap}}
+\Abbr \Aut {\operatorname{Aut}}
+\Abbr \cod{\operatorname{cod}}
 \Abbr \coker {\operatorname{coker}}
 \Abbr \colim {\operatorname{\underset{\longleftarrow}{lim}}}
 \Abbr \dim {\operatorname{dim}}
-\Abbr \D {\mathscr{D}}
-\Abbr \End {\mathrm{End}}
+\Abbr \dom{\operatorname{dom}}
 \Abbr \empty {\varnothing}
+\Abbr \End {\mathrm{End}}
 \Abbr \eqq {\overset{\mathclap{\text{\tiny{def}}}}{=}}
 \Abbr \Hom {\mathrm{Hom}}
 \Abbr \id {\mathrm{id}}
-\Abbr \I {\mathcal{I}}
 \Abbr \im {\operatorname{im}}
 \Abbr \ker {\operatorname{ker}}
-\Abbr \M {\mathcal{M}}
-\Abbr \N {\mathbb{N}}
+\Abbr \lim {\operatorname{\underset{\longrightarrow}{lim}}}
+\Abbr \mor {\operatorname{mor}}
+\Abbr \ob {\operatorname{ob}}
 \Abbr \one {\mathbf{1}}
 \Abbr \op {{}^{\mathsf{op}}}
-\Abbr \Q {\mathbb{Q}}
 \Abbr \rank {\mathrm{rank}}
-\Abbr \R {\mathbb{R}}
-\Abbr \S {\mathbb{S}}
+\Abbr \Sub {\mathrm{Sub}}
 \Abbr \tensor {\otimes}
+\Abbr \three {\mathbf{3}}
 \Abbr \tr {\mathsf{tr}}
 \Abbr \two {\mathbf{2}}
 \Abbr \zero {\mathbf{0}}
+
 \Categ \Ab {Ab}
 \Categ \Cat {Cat}
 \Categ \CMon {CMon}
@@ -74,9 +205,24 @@
 \Categ \sSet {sSet}
 \Categ \Top {Top}
 
-\NewMathCommand \set {>\TrimSpaces m >\TrimSpaces o}
+\NewMathCommand \angle {>\TrimSpaces m >\TrimSpaces o}
   {%
-    \left\lbrace#1\IfValueT{#2}{ \mid #2}\right\rbrace%
+    \left\langle#1\IfValueT{#2}{\ \,\vrule\ \,#2}\right\rangle%
+  }
+
+\NewMathCommand \bbrack {>\TrimSpaces m >\TrimSpaces o}
+  {%
+    \left\llbracket#1\IfValueT{#2}{\ \,\vrule\ \,#2}\right\rrbracket%
+  }
+
+\NewMathCommand \brace {>\TrimSpaces m >\TrimSpaces o}
+  {%
+    \left\lbrace#1\IfValueT{#2}{\ \,\vrule\ \,#2}\right\rbrace%
+  }
+
+\NewMathCommand \brack {>\TrimSpaces m >\TrimSpaces o}
+  {%
+    \left\lbrack#1\IfValueT{#2}{\ \,\vrule\ \,#2}\right\rbrack%
   }
 
 \NewMathCommand \Mod {s >\TrimSpaces m}
