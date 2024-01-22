@@ -14,198 +14,7 @@
       }
   }
 
-% Define a new math-specific abbreviation.
-\NewDocumentCommand \Abbr {>\TrimSpaces m >\TrimSpaces m}
-  {%
-    \NewMathCommand #1 {} {#2}
-  }
-
-% Define a new named category.
-\NewDocumentCommand \Categ {>\TrimSpaces m >\TrimSpaces m}
-  {%
-    \NewMathCommand #1 {>\TrimSpaces o}
-      {\IfValueTF{##1}{\mathrm{#2}(##1)}{\mathbf{#2}}}
-  }
-
-% Define \mathscr if not defined by the current font.
-\ProvideDocumentCommand \mathscr {>\TrimSpaces m}
-  {\mathcal{#1}}
-
-\Abbr \bbA {\mathbb{A}}
-\Abbr \bbB {\mathbb{B}}
-\Abbr \bbC {\mathbb{C}}
-\Abbr \bbD {\mathbb{D}}
-\Abbr \bbE {\mathbb{E}}
-\Abbr \bbF {\mathbb{F}}
-\Abbr \bbG {\mathbb{G}}
-\Abbr \bbH {\mathbb{H}}
-\Abbr \bbI {\mathbb{I}}
-\Abbr \bbJ {\mathbb{J}}
-\Abbr \bbK {\mathbb{K}}
-\Abbr \bbL {\mathbb{L}}
-\Abbr \bbM {\mathbb{M}}
-\Abbr \bbN {\mathbb{N}}
-\Abbr \bbO {\mathbb{O}}
-\Abbr \bbP {\mathbb{P}}
-\Abbr \bbQ {\mathbb{Q}}
-\Abbr \bbR {\mathbb{R}}
-\Abbr \bbS {\mathbb{S}}
-\Abbr \bbT {\mathbb{T}}
-\Abbr \bbU {\mathbb{U}}
-\Abbr \bbV {\mathbb{V}}
-\Abbr \bbW {\mathbb{W}}
-\Abbr \bbX {\mathbb{X}}
-\Abbr \bbY {\mathbb{Y}}
-\Abbr \bbZ {\mathbb{Z}}
-
-\Abbr \bfA {\mathbf{A}}
-\Abbr \bfB {\mathbf{B}}
-\Abbr \bfC {\mathbf{C}}
-\Abbr \bfD {\mathbf{D}}
-\Abbr \bfE {\mathbf{E}}
-\Abbr \bfF {\mathbf{F}}
-\Abbr \bfG {\mathbf{G}}
-\Abbr \bfH {\mathbf{H}}
-\Abbr \bfI {\mathbf{I}}
-\Abbr \bfJ {\mathbf{J}}
-\Abbr \bfK {\mathbf{K}}
-\Abbr \bfL {\mathbf{L}}
-\Abbr \bfM {\mathbf{M}}
-\Abbr \bfN {\mathbf{N}}
-\Abbr \bfO {\mathbf{O}}
-\Abbr \bfP {\mathbf{P}}
-\Abbr \bfQ {\mathbf{Q}}
-\Abbr \bfR {\mathbf{R}}
-\Abbr \bfS {\mathbf{S}}
-\Abbr \bfT {\mathbf{T}}
-\Abbr \bfU {\mathbf{U}}
-\Abbr \bfV {\mathbf{V}}
-\Abbr \bfW {\mathbf{W}}
-\Abbr \bfX {\mathbf{X}}
-\Abbr \bfY {\mathbf{Y}}
-\Abbr \bfZ {\mathbf{Z}}
-
-\Abbr \calA {\mathcal{A}}
-\Abbr \calB {\mathcal{B}}
-\Abbr \calC {\mathcal{C}}
-\Abbr \calD {\mathcal{D}}
-\Abbr \calE {\mathcal{E}}
-\Abbr \calF {\mathcal{F}}
-\Abbr \calG {\mathcal{G}}
-\Abbr \calH {\mathcal{H}}
-\Abbr \calI {\mathcal{I}}
-\Abbr \calJ {\mathcal{J}}
-\Abbr \calK {\mathcal{K}}
-\Abbr \calL {\mathcal{L}}
-\Abbr \calM {\mathcal{M}}
-\Abbr \calN {\mathcal{N}}
-\Abbr \calO {\mathcal{O}}
-\Abbr \calP {\mathcal{P}}
-\Abbr \calQ {\mathcal{Q}}
-\Abbr \calR {\mathcal{R}}
-\Abbr \calS {\mathcal{S}}
-\Abbr \calT {\mathcal{T}}
-\Abbr \calU {\mathcal{U}}
-\Abbr \calV {\mathcal{V}}
-\Abbr \calW {\mathcal{W}}
-\Abbr \calX {\mathcal{X}}
-\Abbr \calY {\mathcal{Y}}
-\Abbr \calZ {\mathcal{Z}}
-
-\Abbr \scrA {\mathscr{A}}
-\Abbr \scrB {\mathscr{B}}
-\Abbr \scrC {\mathscr{C}}
-\Abbr \scrD {\mathscr{D}}
-\Abbr \scrE {\mathscr{E}}
-\Abbr \scrF {\mathscr{F}}
-\Abbr \scrG {\mathscr{G}}
-\Abbr \scrH {\mathscr{H}}
-\Abbr \scrI {\mathscr{I}}
-\Abbr \scrJ {\mathscr{J}}
-\Abbr \scrK {\mathscr{K}}
-\Abbr \scrL {\mathscr{L}}
-\Abbr \scrM {\mathscr{M}}
-\Abbr \scrN {\mathscr{N}}
-\Abbr \scrO {\mathscr{O}}
-\Abbr \scrP {\mathscr{P}}
-\Abbr \scrQ {\mathscr{Q}}
-\Abbr \scrR {\mathscr{R}}
-\Abbr \scrS {\mathscr{S}}
-\Abbr \scrT {\mathscr{T}}
-\Abbr \scrU {\mathscr{U}}
-\Abbr \scrV {\mathscr{V}}
-\Abbr \scrW {\mathscr{W}}
-\Abbr \scrX {\mathscr{X}}
-\Abbr \scrY {\mathscr{Y}}
-\Abbr \scrZ {\mathscr{Z}}
-
-\Abbr \sfA {\mathsf{A}}
-\Abbr \sfB {\mathsf{B}}
-\Abbr \sfC {\mathsf{C}}
-\Abbr \sfD {\mathsf{D}}
-\Abbr \sfE {\mathsf{E}}
-\Abbr \sfF {\mathsf{F}}
-\Abbr \sfG {\mathsf{G}}
-\Abbr \sfH {\mathsf{H}}
-\Abbr \sfI {\mathsf{I}}
-\Abbr \sfJ {\mathsf{J}}
-\Abbr \sfK {\mathsf{K}}
-\Abbr \sfL {\mathsf{L}}
-\Abbr \sfM {\mathsf{M}}
-\Abbr \sfN {\mathsf{N}}
-\Abbr \sfO {\mathsf{O}}
-\Abbr \sfP {\mathsf{P}}
-\Abbr \sfQ {\mathsf{Q}}
-\Abbr \sfR {\mathsf{R}}
-\Abbr \sfS {\mathsf{S}}
-\Abbr \sfT {\mathsf{T}}
-\Abbr \sfU {\mathsf{U}}
-\Abbr \sfV {\mathsf{V}}
-\Abbr \sfW {\mathsf{W}}
-\Abbr \sfX {\mathsf{X}}
-\Abbr \sfY {\mathsf{Y}}
-\Abbr \sfZ {\mathsf{Z}}
-
-\Abbr \ap {\mathsf{ap}}
-\Abbr \Aut {\operatorname{Aut}}
-\Abbr \cod{\operatorname{cod}}
-\Abbr \coker {\operatorname{coker}}
-\Abbr \colim {\operatorname{\underset{\longleftarrow}{lim}}}
-\Abbr \dim {\operatorname{dim}}
-\Abbr \dom{\operatorname{dom}}
-\Abbr \el {\operatorname{el}}
-\Abbr \empty {\varnothing}
-\Abbr \End {\mathrm{End}}
-\Abbr \eqq {\overset{\mathclap{\text{\tiny{def}}}}{=}}
-\Abbr \Hom {\mathrm{Hom}}
-\Abbr \id {\mathrm{id}}
-\Abbr \im {\operatorname{im}}
-\Abbr \ker {\operatorname{ker}}
-\Abbr \lim {\operatorname{\underset{\longrightarrow}{lim}}}
-\Abbr \mor {\operatorname{mor}}
-\Abbr \ob {\operatorname{ob}}
-\Abbr \one {\mathbf{1}}
-\Abbr \op {{}^{\mathsf{op}}}
-\Abbr \rank {\mathrm{rank}}
-\Abbr \Sub {\mathrm{Sub}}
-\Abbr \tensor {\otimes}
-\Abbr \three {\mathbf{3}}
-\Abbr \tr {\mathsf{tr}}
-\Abbr \two {\mathbf{2}}
-\Abbr \zero {\mathbf{0}}
-
-\Categ \Ab {Ab}
-\Categ \Cat {Cat}
-\Categ \CMon {CMon}
-\Categ \Grp {Grp}
-\Categ \Lat {Lat}
-\Categ \Mon {Mon}
-\Categ \Pos {Pos}
-\Categ \PSh {PSh}
-\Categ \Set {Set}
-\Categ \sSet {sSet}
-\Categ \Top {Top}
-
+% -- Delimiters.
 \NewMathCommand \angle {>\TrimSpaces m >\TrimSpaces o}
   {%
     \left\langle#1\IfValueT{#2}{\ \,\vrule\ \,#2}\right\rangle%
@@ -226,7 +35,117 @@
     \left\lbrack#1\IfValueT{#2}{\ \,\vrule\ \,#2}\right\rbrack%
   }
 
+\NewMathCommand \paren {>\TrimSpaces m >\TrimSpaces o}
+  {%
+    \left\lparen#1\IfValueT{#2}{\ \,\vrule\ \,#2}\right\rparen%
+  }
+
+% Define a new math-specific abbreviation.
+\NewDocumentCommand \Abbr {>\TrimSpaces m >\TrimSpaces m}
+  {%
+    \NewMathCommand #1 {} {#2}
+  }
+
+% Fallback to \mathcal if \mathscr is not defined by the current font.
+\ProvideDocumentCommand \mathscr {>\TrimSpaces m}
+  {\mathcal{#1}}
+
+% Typeface for a small category.
+\let\Sm\mathscr
+
+% Typeface for a large category.
+\let\La\mathbf
+
+% Typeface for a category which is "special" (e.g. double or enriched) in some way.
+\let\Spe\mathbb
+
+% Define a large category which can be made internal.
+\NewDocumentCommand \Categ {>\TrimSpaces m >\TrimSpaces m}
+  {%
+    \NewMathCommand #1 {>\TrimSpaces o}
+      {\IfValueTF{##1}{\mathrm{#2}(##1)}{\La{#2}}}
+  }
+
+% Category of left or right #1-modules.
 \NewMathCommand \Mod {s >\TrimSpaces m}
   {%
-    \IfBooleanTF{#1}{\text{Mod-$#2$}}{\text{$#2$-Mod}}%
+    \IfBooleanTF{#1}{\text{$\La{Mod}$-$#2$}}{\text{$#2$-$\La{Mod}$}}%
   }
+
+% Force \hat to be \widehat.
+\let\hat\widehat
+
+% -- Useful abbrevations.
+\Abbr \ap {\mathsf{ap}}
+\Abbr \Arr {\mathrm{Arr}}
+\Abbr \Aut {\operatorname{Aut}}
+\Abbr \CAT {\mathbb{CAT}}
+\Abbr \cod{\operatorname{cod}}
+\Abbr \Cofib {\mathrm{Cofib}}
+\Abbr \Cof {\mathrm{Cof}}
+\Abbr \coker {\operatorname{coker}}
+\Abbr \colim {\operatorname{colim}}
+\Abbr \Core {\mathrm{Core}}
+\Abbr \cosk {\operatorname{cosk}}
+\Abbr \Cyl {\mathrm{Cyl}}
+\Abbr \deg {\operatorname{deg}}
+\Abbr \dim {\operatorname{dim}}
+\Abbr \dom{\operatorname{dom}}
+\Abbr \el {\operatorname{el}}
+\Abbr \empty {\varnothing}
+\Abbr \End {\mathrm{End}}
+\Abbr \eqq {\overset{\mathclap{\text{\tiny{def}}}}{=}}
+\Abbr \Fib {\mathrm{Fib}}
+\Abbr \Func {\mathrm{Func}}
+\Abbr \hocolim {\operatorname{hocolim}}
+\Abbr \holim {\operatorname{holim}}
+\Abbr \ho {\mathrm{ho}}
+\Abbr \Ho {\mathrm{Ho}}
+\Abbr \hom {\mathrm{hom}}
+\Abbr \Hom {\mathrm{Hom}}
+\Abbr \id {\mathrm{id}}
+\Abbr \im {\operatorname{im}}
+\Abbr \inv {{}^{-1}}
+\Abbr \ker {\operatorname{ker}}
+\Abbr \lim {\operatorname{lim}}
+\Abbr \Map {\mathrm{Map}}
+\Abbr \mor {\operatorname{mor}}
+\Abbr \Nat {\mathrm{Nat}}
+\Abbr \ob {\operatorname{ob}}
+\Abbr \one {\mathbf{1}}
+\Abbr \op {{}^{\mathsf{op}}}
+\Abbr \Path {\mathrm{Path}}
+\Abbr \pr {\mathrm{pr}}
+\Abbr \proj {\mathrm{proj}}
+\Abbr \rank {\mathrm{rank}}
+\Abbr \sk {\operatorname{sk}}
+\Abbr \Sub {\mathrm{Sub}}
+\Abbr \tensor {\otimes}
+\Abbr \three {\mathbf{3}}
+\Abbr \tr {\mathsf{tr}}
+\Abbr \two {\mathbf{2}}
+\Abbr \zero {\mathbf{0}}
+
+% -- Notable categories.
+\Categ \Ab {Ab}
+\Categ \Cat {Cat}
+\Categ \Ch {Ch}
+\Categ \CMon {CMon}
+\Categ \Dist {Dist}
+\Categ \Ens {Ens}
+\Categ \Fin {Fin}
+\Categ \Gpd {Gpd}
+\Categ \Grp {Grp}
+\Categ \Hot {Hot}
+\Categ \Lat {Lat}
+\Categ \Mon {Mon}
+\Categ \Pos {Pos}
+\Categ \Pro {Pro}
+\Categ \PSh {PSh}
+\Categ \sAb {sAb}
+\Categ \Set {Set}
+\Categ \sSet {sSet}
+\Categ \Top {Top}
+\Categ \Type {Type}
+
+\input{preamble/macros/math-alphabet}
