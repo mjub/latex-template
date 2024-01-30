@@ -142,8 +142,12 @@
 }
 
 \NewDocumentEnvironment {diagram} {>\TrimSpaces o}
-  {\center\IfNoValueTF{#1}{\tikzcd}{\tikzcd[#1]}}
-  {\endtikzcd\endcenter}
+  {\equation\IfNoValueTF{#1}{\tikzcd}{\tikzcd[#1]}}
+  {\endtikzcd\endequation}
+
+\NewDocumentEnvironment {diagram*} {>\TrimSpaces o}
+  {\begin{equation*}\IfNoValueTF{#1}{\tikzcd}{\tikzcd[#1]}}
+  {\endtikzcd\end{equation*}}
 
 % -- titlecaps.
 \iflanguage{french}{}{%
