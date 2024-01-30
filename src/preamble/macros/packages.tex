@@ -12,10 +12,10 @@
       % Special enviroment for lists (i.e. itemize and enumerate).
       \NewDocumentEnvironment {#3-list} {o}
         {\IfValueTF{##1}{\begin{#3}[##1]}{\begin{#3}}\leavevmode\nopagebreak}
-        {\end{#3}}
+        {\end{#3}\ignorespacesafterend}
       \NewDocumentEnvironment {#3-list*} {o}
         {\IfValueTF{##1}{\begin{#3*}[##1]}{\begin{#3*}}\leavevmode\nopagebreak}
-        {\end{#3*}}
+        {\end{#3*}\ignorespacesafterend}
     }
 
   % Create a whole class of new theorem environments.
@@ -143,11 +143,11 @@
 
 \NewDocumentEnvironment {diagram} {>\TrimSpaces o}
   {\equation\IfNoValueTF{#1}{\tikzcd}{\tikzcd[#1]}}
-  {\endtikzcd\endequation}
+  {\endtikzcd\endequation\ignorespacesafterend}
 
 \NewDocumentEnvironment {diagram*} {>\TrimSpaces o}
   {\begin{equation*}\IfNoValueTF{#1}{\tikzcd}{\tikzcd[#1]}}
-  {\endtikzcd\end{equation*}}
+  {\endtikzcd\end{equation*}\ignorespacesafterend}
 
 % -- titlecaps.
 \iflanguage{french}{}{%
